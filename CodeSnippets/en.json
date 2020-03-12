@@ -1,0 +1,15 @@
+{
+  "Menu": {
+    "Home": "Landing page",
+    "Notes": {
+      "Label": "Notes",
+      "Save": "Save",
+      "Share": "Share"
+    }
+  },
+  "Home": {
+    "Query": "Search",
+    "Enter": "Enter query"
+  },
+  "BookShareFormat": "A book was shared: {0}"
+}

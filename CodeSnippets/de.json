@@ -1,0 +1,15 @@
+{
+  "Menu": {
+    "Home": "Startseite",
+    "Notes": {
+      "Label": "Notizen",
+      "Save": "Speichern",
+      "Share": "Teilen"
+    }
+  },
+  "Home": {
+    "Query": "Suche",
+    "Enter": "Suchtext eingeben"
+  },
+  "BookShareFormat":  "Buch {0} wurde geteilt"
+}
