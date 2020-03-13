@@ -14,10 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Suchtext eingeben" />
-     <EditText
-          android:inputType="text"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          local:MvxBind="Text SearchText" />
- 
+    <EditText
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Text SearchText" />
+    <Button
+        android:text="Start Research"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click StartSearchCommand" />
+     <Mvx.MvxListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        local:MvxBind="ItemsSource Books"
+        local:MvxItemTemplate="@layout/item_book" />
 </LinearLayout>

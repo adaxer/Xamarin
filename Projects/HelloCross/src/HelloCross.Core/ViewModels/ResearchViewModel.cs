@@ -1,4 +1,5 @@
 ﻿using HelloCross.Core.Interfaces;
+using HelloCross.Core.Models;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
@@ -14,20 +15,28 @@ namespace HelloCross.Core.ViewModels
     public class ResearchViewModel : BaseViewModel
     {
         private readonly ISettingsService _settings;
+        private readonly IBookService _bookService;
 
-        public ResearchViewModel(IMvxNavigationService navigationService, ISettingsService settings) : base(navigationService)
+        public ResearchViewModel(IMvxNavigationService navigationService, ISettingsService settings, IBookService bookService) : base(navigationService)
         {
             Title = "Research-ViewModel";
             _settings = settings;
+            _bookService = bookService;
         }
 
         public string SearchText { get; set; } = "text";
+
+        public ICollection<Book> Books { get; set; }
+
+        public int ResultCount { get; set; }
 
         public ICommand StartSearchCommand => new MvxCommand(StartSearch);
 
         private async void StartSearch()
         {
-            ;
+            BookQuery query = await _bookService.BookQueryAsync(SearchText);
+            ResultCount = query.Count;
+            Books = new MvxObservableCollection<Book>(query.Books);
         }
 
         public override async Task Initialize()

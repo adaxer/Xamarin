@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCross.UWP", "src\Hello
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F69029F5-0762-4D11-8FA1-D7F5E1ECF1DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloCross.Core.Tests", "HelloCross.Core.Tests\HelloCross.Core.Tests.csproj", "{7404348A-99E7-48E7-AA5C-98E89043CD38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloCross.Core.Tests", "HelloCross.Core.Tests\HelloCross.Core.Tests.csproj", "{7404348A-99E7-48E7-AA5C-98E89043CD38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +113,8 @@ Global
 		{406A8FCA-F80C-4512-88E7-66B085D854E0}.Release|x64.ActiveCfg = Release|iPhone
 		{406A8FCA-F80C-4512-88E7-66B085D854E0}.Release|x86.ActiveCfg = Release|iPhone
 		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|Any CPU.Build.0 = Debug|x86
+		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|ARM.ActiveCfg = Debug|ARM
 		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|ARM.Build.0 = Debug|ARM
 		{41FE1710-9507-4BA6-813A-72C08D411ED2}.Debug|ARM.Deploy.0 = Debug|ARM

@@ -146,5 +146,10 @@ namespace HelloCross.Droid.Linker
         {
             _ = new MvxChildViewModelCache();
         }
+
+        public void Include(MvvmCross.Plugin.File.MvxFileStoreBase fsb)
+        {
+            var _ = fsb;
+        }
     }
 }

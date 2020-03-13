@@ -10,12 +10,13 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using HelloCross.Core.ViewModels;
+using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Views;
 
 namespace HelloCross.Droid.Views
 {
     [Activity(Label="Research")]
-    public class ResearchView : MvxActivity<ResearchViewModel>
+    public class ResearchView : MvxAppCompatActivity<ResearchViewModel>
     {
         protected override void OnCreate(Bundle bundle)
         {
