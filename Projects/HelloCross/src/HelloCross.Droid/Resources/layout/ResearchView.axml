@@ -25,9 +25,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         local:MvxBind="Click StartSearchCommand" />
-     <Mvx.MvxListView
+    <ProgressBar
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/ctrlActivityIndicator"
+        android:indeterminateOnly="true"
+        android:keepScreenOn="true"
+        local:MvxBind="Visibility IsBusy,Converter=BoolToViewStates"
+     />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        local:MvxBind="Visibility HasResult,Converter=BoolToViewStates">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Text ResultInfo"/>
+        <Button
+            android:text="Save"
+            android:layout_marginLeft="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            local:MvxBind="Click SaveCommand" />
+    </LinearLayout>
+    <Mvx.MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         local:MvxBind="ItemsSource Books"
-        local:MvxItemTemplate="@layout/item_book" />
+        local:MvxItemTemplate="@layout/item_book"
+        android:visibility="visible"
+    />
 </LinearLayout>

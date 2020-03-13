@@ -1,6 +1,7 @@
 ﻿using HelloCross.Core.Interfaces;
 using HelloCross.Core.Models;
 using Newtonsoft.Json;
+using Realms;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,6 +44,17 @@ namespace HelloCross.Core.Services
         public async Task SaveBookAsync(Book book, string notes)
         {
             await _dataService.SaveBook(book, notes);
+        }
+
+        public async Task SaveQueryAsync(BookQueryResult bookQueryResult)
+        {
+            var realm = await Realm.GetInstanceAsync();
+            await realm.WriteAsync(r =>
+            {
+                r.Add<BookQueryResult>(bookQueryResult);
+            });
+
+            var savedQueries = realm.All<BookQueryResult>();
         }
 
         public Task UploadBookAsync(Book book, string notes)

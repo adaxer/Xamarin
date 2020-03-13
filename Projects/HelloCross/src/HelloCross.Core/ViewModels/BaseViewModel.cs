@@ -21,6 +21,8 @@ namespace HelloCross.Core.ViewModels
 			set { SetProperty(ref _title, value); }
 		}
 
+		public bool IsBusy { get; set; }
+
 		protected IMvxNavigationService NavigationService { get; }
 	}
 }

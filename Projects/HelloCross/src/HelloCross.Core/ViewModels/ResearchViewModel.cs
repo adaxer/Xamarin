@@ -28,15 +28,32 @@ namespace HelloCross.Core.ViewModels
 
         public ICollection<Book> Books { get; set; }
 
+        private BookQuery _lastQuery;
+
         public int ResultCount { get; set; }
 
         public ICommand StartSearchCommand => new MvxCommand(StartSearch);
+        public ICommand SaveCommand => new MvxCommand(Save);
+
+        private async void Save()
+        {
+            IsBusy = true;
+            await _bookService.SaveQueryAsync(new BookQueryResult { Count = (_lastQuery ?? new BookQuery()).Count, Date = DateTime.UtcNow, SearchText = SearchText });
+            IsBusy = false;
+        }
+
+        public bool HasResult { get; private set; }
+        public string ResultInfo { get; private set; }
 
         private async void StartSearch()
         {
-            BookQuery query = await _bookService.BookQueryAsync(SearchText);
-            ResultCount = query.Count;
-            Books = new MvxObservableCollection<Book>(query.Books);
+            IsBusy = true;
+            _lastQuery = await _bookService.BookQueryAsync(SearchText);
+            ResultCount = _lastQuery.Count;
+            Books = new MvxObservableCollection<Book>(_lastQuery.Books);
+            IsBusy = false;
+            HasResult = _lastQuery.Count > 0;
+            ResultInfo = $"{_lastQuery.Count} Book(s) found";
         }
 
         public override async Task Initialize()

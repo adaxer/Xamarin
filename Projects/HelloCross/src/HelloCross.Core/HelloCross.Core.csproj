@@ -10,6 +10,9 @@
     <PackageReference Include="MvvmCross.Plugin.PictureChooser" Version="6.4.2" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.6" />
+    <PackageReference Include="Realm" Version="4.3.0" />
+    <PackageReference Include="Serilog" Version="2.9.1-dev-01154" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0-dev-00839" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
   </ItemGroup>
 </Project>

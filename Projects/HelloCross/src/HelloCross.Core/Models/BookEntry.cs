@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Realms;
+using System;
 
 namespace HelloCross.Core.Models
 {
@@ -15,4 +16,13 @@ namespace HelloCross.Core.Models
 
         public DateTime Saved { get; set; }
     }
+
+
+    public class BookQueryResult : RealmObject
+    {
+        public int Count { get; set; }
+        public string SearchText { get; set; }
+        public DateTimeOffset Date { get; set; }
+    }
+
 }

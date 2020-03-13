@@ -10,7 +10,7 @@ namespace HelloForms
     public class MainViewModel : INotifyPropertyChanged
     {
         //public string Title { get; set; } = "Hi there";
-        private string _title;
+        private string _title = "Main ViewModel";
 
         public string Title
         {

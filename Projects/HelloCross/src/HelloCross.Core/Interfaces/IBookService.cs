@@ -12,5 +12,7 @@ namespace HelloCross.Core.Interfaces
         Task SaveBookAsync(Book book, string notes);
 
         Task UploadBookAsync(Book book, string notes);
+
+        Task SaveQueryAsync(BookQueryResult bookQueryResult);
     }
 }

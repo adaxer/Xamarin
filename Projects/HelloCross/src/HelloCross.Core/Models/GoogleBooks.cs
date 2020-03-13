@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace HelloCross.Core.Models
@@ -47,6 +48,5 @@ namespace HelloCross.Core.Models
         [JsonProperty("items")]
         public List<Book> Books { get; set; }
     }
-
 
 }

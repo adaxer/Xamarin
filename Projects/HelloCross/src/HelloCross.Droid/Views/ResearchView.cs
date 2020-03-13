@@ -22,6 +22,9 @@ namespace HelloCross.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.ResearchView);
+            //ProgressBar pb;
+            //EditText et;
+            //et.TextChanged += (s,e) => viewmodel.Title = et.Text
         }
     }
 }
