@@ -1,11 +1,13 @@
 ﻿using HelloCross.Core.Interfaces;
 using HelloCross.Core.Models;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace HelloCross.Core.ViewModels
 {
@@ -25,14 +27,16 @@ namespace HelloCross.Core.ViewModels
         public BookQueryResult CurrentQuery
         {
             get { return _currentQuery; }
-            set { _currentQuery = value; ShowQuery(); }
+            set { _currentQuery = value; ShowQuery(value); }
         }
 
-        private async void ShowQuery()
+        public ICommand ShowQueryCommand => new MvxCommand<BookQueryResult>(bqr => ShowQuery(bqr));
+
+        private async void ShowQuery(BookQueryResult bookQuery)
         {
-            if (_currentQuery != null)
+            if (bookQuery != null)
             {
-                await NavigationService.Navigate<ResearchViewModel, string>(_currentQuery.SearchText);
+                await NavigationService.Navigate<ResearchViewModel, string>(bookQuery.SearchText);
             }
         }
 

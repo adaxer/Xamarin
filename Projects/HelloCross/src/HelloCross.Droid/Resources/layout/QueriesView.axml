@@ -17,7 +17,7 @@
     <Mvx.MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        local:MvxBind="ItemsSource Queries"
+        local:MvxBind="ItemsSource Queries;ItemClick ShowQueryCommand"
         local:MvxItemTemplate="@layout/item_query"
         android:visibility="visible"
     />
