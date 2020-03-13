@@ -68,6 +68,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Views\MainView.cs" />
+    <Compile Include="Views\QueriesView.cs" />
     <Compile Include="Views\ResearchView.cs" />
     <Compile Include="Views\Splash\SplashActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -163,6 +164,18 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Item_Book.axml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Item_Query.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\QueriesView.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

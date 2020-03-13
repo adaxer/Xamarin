@@ -18,6 +18,12 @@ namespace HelloCross.Core.ViewModels
         }
 
         public ICommand ShowResearchCommand => new MvxCommand(ShowResearch);
+        public ICommand ShowQueriesCommand => new MvxCommand(ShowQueries);
+
+        private async void ShowQueries()
+        {
+            await NavigationService.Navigate<QueriesViewModel>();
+        }
 
         private async void ShowResearch()
         {

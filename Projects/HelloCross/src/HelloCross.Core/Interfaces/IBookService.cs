@@ -1,4 +1,5 @@
 ﻿using HelloCross.Core.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace HelloCross.Core.Interfaces
@@ -14,5 +15,7 @@ namespace HelloCross.Core.Interfaces
         Task UploadBookAsync(Book book, string notes);
 
         Task SaveQueryAsync(BookQueryResult bookQueryResult);
+
+        Task<IEnumerable<BookQueryResult>> GetQueriesAsync();
     }
 }

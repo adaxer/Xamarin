@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="30dp">
+    <ProgressBar
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/ctrlActivityIndicator2"
+        android:indeterminateOnly="true"
+        android:keepScreenOn="true"
+        local:MvxBind="Visibility IsBusy,Converter=BoolToViewStates"
+     />
+    <Mvx.MvxListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        local:MvxBind="ItemsSource Queries"
+        local:MvxItemTemplate="@layout/item_query"
+        android:visibility="visible"
+    />
+</LinearLayout>
