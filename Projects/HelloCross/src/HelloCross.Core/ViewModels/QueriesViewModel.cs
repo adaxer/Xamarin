@@ -1,6 +1,7 @@
 ﻿using HelloCross.Core.Interfaces;
 using HelloCross.Core.Models;
 using MvvmCross.Navigation;
+using MvvmCross.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,6 +19,22 @@ namespace HelloCross.Core.ViewModels
         }
 
         public IEnumerable<BookQueryResult> Queries { get; private set; }
+
+        private BookQueryResult _currentQuery;
+
+        public BookQueryResult CurrentQuery
+        {
+            get { return _currentQuery; }
+            set { _currentQuery = value; ShowQuery(); }
+        }
+
+        private async void ShowQuery()
+        {
+            if (_currentQuery != null)
+            {
+                await NavigationService.Navigate<ResearchViewModel, string>(_currentQuery.SearchText);
+            }
+        }
 
         public override async Task Initialize()
         {

@@ -12,7 +12,7 @@ using Xamarin.Essentials;
 
 namespace HelloCross.Core.ViewModels
 {
-    public class ResearchViewModel : BaseViewModel
+    public class ResearchViewModel : BaseViewModel<string>
     {
         private readonly ISettingsService _settings;
         private readonly IBookService _bookService;
@@ -56,18 +56,24 @@ namespace HelloCross.Core.ViewModels
             ResultInfo = $"{_lastQuery.Count} Book(s) found";
         }
 
-        public override async Task Initialize()
-        {
-            await base.Initialize();
-            if(_settings.Has("Research.SearchText"))
-            {
-                SearchText = _settings.Get("Research.SearchText", "");
-            }
-        }
         public override void ViewDisappearing()
         {
             base.ViewDisappearing();
             _settings.Set("Research.SearchText", SearchText);
+        }
+
+        public override void Prepare(string parameter)
+        {
+            SearchText = parameter;
+            StartSearch();
+        }
+
+        public override void Prepare()
+        {
+            if (_settings.Has("Research.SearchText"))
+            {
+                SearchText = _settings.Get("Research.SearchText", "");
+            }
         }
     }
 }

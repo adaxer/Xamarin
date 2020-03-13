@@ -6,7 +6,18 @@ using MvvmCross.ViewModels;
 
 namespace HelloCross.Core.ViewModels
 {
-    public abstract class BaseViewModel : MvxViewModel
+	public class BaseViewModel : BaseViewModel<object>
+	{
+		public BaseViewModel(IMvxNavigationService navigationService) : base(navigationService)
+		{
+		}
+
+		public override void Prepare(object parameter)
+		{
+		}
+	}
+
+	public abstract class BaseViewModel<T> : MvxViewModel<T>
     {
 		public BaseViewModel(IMvxNavigationService navigationService)
 		{
