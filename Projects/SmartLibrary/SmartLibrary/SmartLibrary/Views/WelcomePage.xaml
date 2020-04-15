@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" Style="{StaticResource ContentPageStyle}"
+             xmlns:loc="clr-namespace:SmartLibrary.Localization;assembly=SmartLibrary.Localization"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="SmartLibrary.Core.Views.WelcomePage">
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="{loc:Loc Key=Welcome}" Style="{StaticResource TitleLabelStyle}"/>
+        <Label Text="UserName"/>
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Login" />
+            <Button Text="Login" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

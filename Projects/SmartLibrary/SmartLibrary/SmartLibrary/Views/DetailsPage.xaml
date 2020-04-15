@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SmartLibrary.Core.ViewModels" x:DataType="vm:DetailsViewModel"
+             mc:Ignorable="d" Style="{StaticResource ContentPageStyle}"
+             x:Class="SmartLibrary.Core.Views.DetailsPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="{Binding Book.Info.ImageLinks.Thumbnail}" VerticalOptions="Start"/>
+            <StackLayout Grid.Column="1">
+                <Label Text="{Binding Book.Info.AuthorInfo}" Style="{DynamicResource TitleLabelStyle}" >
+                    <Label.Triggers>
+                        <DataTrigger TargetType="Label" Binding="{Binding Book.Info.AuthorInfo}" Value="n.n." >
+                            <Setter  Property="Text" Value="No Author" />
+                            <Setter Property="BackgroundColor" Value="Red" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label Text="{Binding Book.Info.Description}" Style="{StaticResource BodyLabelStyle}" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center">
+                <Button Text="Lokal Merken" />
+                <Button Text="Als Favorit speichern" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

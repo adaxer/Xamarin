@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com" Style="{StaticResource ContentPageStyle}"
+             xmlns:vm="clr-namespace:SmartLibrary.Core.ViewModels"
+             xmlns:m="clr-namespace:SmartLibrary.Core.Models"
+             xmlns:c="clr-namespace:SmartLibrary.Core.Converters"
+             prism:ViewModelLocator.AutowireViewModel="True" x:DataType="vm:SearchViewModel"
+             x:Class="SmartLibrary.Core.Views.SearchPage">
+    <ContentPage.Resources>
+        <c:EllipsisConverter x:Key="EllipsisConverter" />
+    </ContentPage.Resources>
+    <StackLayout>
+        <SearchBar Placeholder="Suchbegriff eingeben" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}" />
+        <Label Text="{Binding LastQuery.Count}" />
+        <ListView ItemsSource="{Binding Books}" HasUnevenRows="True" SelectedItem="{Binding CurrentBook, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="m:Book">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image VerticalOptions="StartAndExpand" Source="{Binding Info.ImageLinks.SmallThumbnail}" />
+                            <StackLayout Grid.Column="1">
+                                <Label Text="{Binding Info.Title}" Style="{StaticResource TitleLabelStyle}" />
+                                <Label Text="{Binding Info.AuthorInfo}" Style="{StaticResource BodyLabelStyle}" />
+                                <Label Text="{Binding Info.Description, Converter={StaticResource EllipsisConverter}, ConverterParameter=300}" 
+                                       Style="{StaticResource BodyLabelStyle}"/>
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
