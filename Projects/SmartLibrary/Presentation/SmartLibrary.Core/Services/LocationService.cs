@@ -11,7 +11,7 @@ namespace SmartLibrary.Core.Services
     {
         public async Task<SmartLibrary.Models.Location> GetLocationQuick()
         {
-            var result = await  Geolocation.GetLastKnownLocationAsync();
+            var result = await Geolocation.GetLocationAsync();
             return new SmartLibrary.Models.Location { Longitude = result.Longitude, Latitude = result.Latitude };
         }
     }

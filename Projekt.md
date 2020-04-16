@@ -18,3 +18,13 @@
 ## Settings
 - Sprach-Einstellung
 - Theme
+
+
+Plan f. Freitag
+- Ticker
+- BusyControl
+- NewsPage (Sqlite)
+- OIDC
+- Theme
+- Filter/Group/Sort
+- LoadMore
