@@ -47,8 +47,10 @@ namespace SmartLibrary.Core.ViewModels
 
         private async void DoSearch()
         {
+            IsBusy = true;
             LastQuery = await _bookService.BookQueryAsync(SearchText);
             Books = new ObservableCollection<Book>(LastQuery?.Books);
+            IsBusy = false;
         }
     }
 }

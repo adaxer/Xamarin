@@ -37,10 +37,10 @@ namespace SmartLibrary.Core.Services
             return book;
         }
 
-        //public async Task SaveBookAsync(Book book, string notes)
-        //{
-        //    await _dataService.SaveBook(book, notes);
-        //}
+        public async Task SaveBookAsync(SavedBook book)
+        {
+            await _rest.PostDataAsync<SavedBook>("", book);
+        }
 
         //public Task UploadBookAsync(Book book, string notes)
         //{

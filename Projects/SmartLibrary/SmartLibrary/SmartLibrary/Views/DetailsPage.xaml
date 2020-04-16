@@ -29,10 +29,7 @@
                 </Label>
                 <Label Text="{Binding Book.Info.Description}" Style="{StaticResource BodyLabelStyle}" />
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center">
-                <Button Text="Lokal Merken" />
-                <Button Text="Als Favorit speichern" />
-            </StackLayout>
+            <Button Grid.ColumnSpan="2" HorizontalOptions="Center" Text="Merken" Command="{Binding SaveCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

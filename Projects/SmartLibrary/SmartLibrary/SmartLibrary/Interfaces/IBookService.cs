@@ -12,7 +12,7 @@ namespace SmartLibrary.Core.Interfaces
 
         Task<Book> GetBookDetailsAsync(string id);
 
-        //Task SaveBookAsync(Book book, string notes);
+        Task SaveBookAsync(SavedBook book);
 
         //Task UploadBookAsync(Book book, string notes);
     }

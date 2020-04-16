@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace SmartLibrary.Core.Services
 {
@@ -13,7 +14,7 @@ namespace SmartLibrary.Core.Services
     {
         public async Task<T> GetDataAsync<T>(string url) where T : class
         {
-            using (var handler = new NativeMessageHandler { UseDefaultCredentials = true })
+            using (var handler = GetHandler())
             {
                 using (var client = new HttpClient(handler))
                 {
@@ -31,9 +32,16 @@ namespace SmartLibrary.Core.Services
             }
         }
 
+        private HttpClientHandler GetHandler()
+        {
+            return Device.RuntimePlatform == Device.UWP
+                ? new HttpClientHandler()
+                : new NativeMessageHandler();
+        }
+
         public async Task<T> PostDataAsync<T>(string url, T payload) where T : class
         {
-            using (var handler = new NativeMessageHandler { UseDefaultCredentials = true })
+            using (var handler = GetHandler())
             {
                 using (var client = new HttpClient(handler))
                 {

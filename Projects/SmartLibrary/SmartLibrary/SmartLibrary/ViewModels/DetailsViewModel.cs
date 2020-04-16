@@ -6,6 +6,7 @@ using SmartLibrary.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 
 namespace SmartLibrary.Core.ViewModels
 {
@@ -19,6 +20,12 @@ namespace SmartLibrary.Core.ViewModels
         }
 
         public Book Book { get; set; }
+        public ICommand SaveCommand => new DelegateCommand(DoSave);
+
+        private async void DoSave()
+        {
+            ;
+        }
 
         public override async void OnNavigatedTo(INavigationParameters parameters)
         {
