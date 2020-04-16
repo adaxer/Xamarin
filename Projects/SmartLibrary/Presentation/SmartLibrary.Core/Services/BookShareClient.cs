@@ -12,10 +12,13 @@ using System.Threading.Tasks;
 
 namespace SmartLibrary.Core.Services
 {
+    [PropertyChanged.AddINotifyPropertyChangedInterface]
     public class BookShareClient : IBookShareClient
     {
         private HubConnection _connection;
         private IEventAggregator _events;
+
+        public string LastBookInfo { get; private set; }
 
         public BookShareClient(IEventAggregator events)
         {
@@ -43,6 +46,7 @@ namespace SmartLibrary.Core.Services
         private void OnBookShared(string json)
         {
             var book = JsonConvert.DeserializeObject<SavedBook>(json);
+            LastBookInfo = $"{book.UserName} shared {book.Title} on {book.SaveDate}. Pos {book.Location.Latitude:f2} {book.Location.Longitude:f2}, {book.Notes}";
             _events.GetEvent<BookSharedEvent>().Publish(book);
         }
 

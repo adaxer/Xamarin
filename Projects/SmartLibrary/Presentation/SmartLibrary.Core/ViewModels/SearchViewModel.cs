@@ -16,10 +16,13 @@ namespace SmartLibrary.Core.ViewModels
     {
         private readonly IBookService _bookService;
 
-        public SearchViewModel(INavigationService navigationService, IBookService bookService) : base(navigationService)
+        public IBookShareClient ShareClient { get; }
+
+        public SearchViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient) : base(navigationService)
         {
             Title = "Search";
             this._bookService = bookService;
+            ShareClient = bookShareClient;
         }
 
         public ICommand SearchCommand => new DelegateCommand(DoSearch);

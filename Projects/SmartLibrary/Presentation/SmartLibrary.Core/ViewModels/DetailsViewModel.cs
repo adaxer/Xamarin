@@ -27,7 +27,7 @@ namespace SmartLibrary.Core.ViewModels
             this._bookShareClient = bookShareClient;
             this._locationService = locationService;
             this._userService = userService;
-            eventAggregator.GetEvent<BookSharedEvent>().Subscribe(b => Title = b.BookId);
+            eventAggregator.GetEvent<BookSharedEvent>().Subscribe(b => Title = b.Title); // Per Event
         }
 
         public Book Book { get; set; }
@@ -40,6 +40,7 @@ namespace SmartLibrary.Core.ViewModels
             SavedBook savedBook = new SavedBook
             {
                 BookId = Book?.Id,
+                Title = Book?.Info?.Title,
                 SaveDate = DateTimeOffset.Now,
                 UserName = _userService.IsLoggedIn ? _userService.UserName : "somebody",
                 Notes = notes,

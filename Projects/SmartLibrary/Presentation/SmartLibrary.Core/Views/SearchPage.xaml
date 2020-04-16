@@ -5,6 +5,7 @@
              xmlns:vm="clr-namespace:SmartLibrary.Core.ViewModels"
              xmlns:m="clr-namespace:SmartLibrary.Core.Models"
              xmlns:c="clr-namespace:SmartLibrary.Core.Converters"
+             xmlns:ctrl="clr-namespace:SmartLibrary.Core.Controls"
              prism:ViewModelLocator.AutowireViewModel="True" x:DataType="vm:SearchViewModel"
              x:Class="SmartLibrary.Core.Views.SearchPage">
     <ContentPage.Resources>
@@ -40,6 +41,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-        <Label Grid.Row="1" Text="Dies ist die Laufschrift" />
+        <ctrl:Ticker Grid.Row="1" HorizontalOptions="Start" Content="{Binding ShareClient.LastBookInfo}" SecondsActive="30"/>
     </Grid>
 </ContentPage>
