@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SmartLibrary.Localization\SmartLibrary.Localization.csproj" />
+    <ProjectReference Include="..\..\Common\SmartLibrary.Localization\SmartLibrary.Localization.csproj" />
   </ItemGroup>
 
   <ItemGroup>

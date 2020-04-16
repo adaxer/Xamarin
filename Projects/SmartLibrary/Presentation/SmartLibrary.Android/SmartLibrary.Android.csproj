@@ -94,8 +94,8 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartLibrary\SmartLibrary.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
+    <ProjectReference Include="..\SmartLibrary.Core\SmartLibrary.csproj">
+      <Project>{c7badad0-3653-4894-ab56-330e9d1e594d}</Project>
       <Name>SmartLibrary</Name>
     </ProjectReference>
   </ItemGroup>
