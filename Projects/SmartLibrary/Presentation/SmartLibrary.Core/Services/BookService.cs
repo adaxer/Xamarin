@@ -1,5 +1,6 @@
 ﻿using SmartLibrary.Core.Interfaces;
 using SmartLibrary.Core.Models;
+using SmartLibrary.Models;
 using System;
 using System.Threading.Tasks;
 

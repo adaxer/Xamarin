@@ -42,6 +42,14 @@ namespace SmartLibrary.Core
             containerRegistry.RegisterForNavigation<DetailsPage, DetailsViewModel>();
 
             containerRegistry.RegisterInstance<IUserService>(Container.Resolve<UserService>());
+            InitializeShareClient(containerRegistry);
+        }
+
+        private void InitializeShareClient(IContainerRegistry containerRegistry)
+        {
+            var client = Container.Resolve<BookShareClient>();
+            containerRegistry.RegisterInstance<IBookShareClient>(client);
+            client.Initialize();
         }
     }
 }

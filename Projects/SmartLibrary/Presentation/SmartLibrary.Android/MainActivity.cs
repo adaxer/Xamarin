@@ -16,6 +16,7 @@ namespace SmartLibrary.Droid
 
             base.OnCreate(bundle);
 
+            Xamarin.Essentials.Platform.Init(this, bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new SmartLibrary.Core.FormsApp(new AndroidInitializer()));
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmartLibrary.Core.Models
+namespace SmartLibrary.Models
 {
     public class SavedBook
     {
@@ -10,5 +10,6 @@ namespace SmartLibrary.Core.Models
         public string UserName { get; set; }
         public DateTimeOffset SaveDate { get; set; }
         public string Notes { get; set; }
+        public Location Location { get; set; }
     }
 }

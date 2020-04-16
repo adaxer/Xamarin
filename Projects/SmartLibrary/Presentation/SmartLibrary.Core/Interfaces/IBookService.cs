@@ -1,7 +1,5 @@
 ﻿using SmartLibrary.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SmartLibrary.Models;
 using System.Threading.Tasks;
 
 namespace SmartLibrary.Core.Interfaces

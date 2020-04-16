@@ -10,29 +10,36 @@
     <ContentPage.Resources>
         <c:EllipsisConverter x:Key="EllipsisConverter" />
     </ContentPage.Resources>
-    <StackLayout>
-        <SearchBar Placeholder="Suchbegriff eingeben" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}" />
-        <Label Text="{Binding LastQuery.Count}" />
-        <ListView ItemsSource="{Binding Books}" HasUnevenRows="True" SelectedItem="{Binding CurrentBook, Mode=TwoWay}">
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="m:Book">
-                    <ViewCell>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Image VerticalOptions="StartAndExpand" Source="{Binding Info.ImageLinks.SmallThumbnail}" />
-                            <StackLayout Grid.Column="1">
-                                <Label Text="{Binding Info.Title}" Style="{StaticResource TitleLabelStyle}" />
-                                <Label Text="{Binding Info.AuthorInfo}" Style="{StaticResource BodyLabelStyle}" />
-                                <Label Text="{Binding Info.Description, Converter={StaticResource EllipsisConverter}, ConverterParameter=300}" 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackLayout>
+            <SearchBar Placeholder="Suchbegriff eingeben" Text="{Binding SearchText}" SearchCommand="{Binding SearchCommand}" />
+            <Label Text="{Binding LastQuery.Count}" />
+            <ListView ItemsSource="{Binding Books}" HasUnevenRows="True" SelectedItem="{Binding CurrentBook, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="m:Book">
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image VerticalOptions="StartAndExpand" Source="{Binding Info.ImageLinks.SmallThumbnail}" />
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="{Binding Info.Title}" Style="{StaticResource TitleLabelStyle}" />
+                                    <Label Text="{Binding Info.AuthorInfo}" Style="{StaticResource BodyLabelStyle}" />
+                                    <Label Text="{Binding Info.Description, Converter={StaticResource EllipsisConverter}, ConverterParameter=300}" 
                                        Style="{StaticResource BodyLabelStyle}"/>
-                            </StackLayout>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <Label Grid.Row="1" Text="Dies ist die Laufschrift" />
+    </Grid>
 </ContentPage>
