@@ -34,6 +34,8 @@ namespace SmartLibrary.Core
         {
             containerRegistry.Register<IRestService, RestService>();
             containerRegistry.Register<IBookService, BookService>();
+            containerRegistry.Register<ISettingsService, XamarinPreferences>();
+            containerRegistry.Register<ILocationService, LocationService>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<StartPage, StartViewModel>();

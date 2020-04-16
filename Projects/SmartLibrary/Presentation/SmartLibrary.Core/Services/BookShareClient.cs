@@ -27,8 +27,7 @@ namespace SmartLibrary.Core.Services
             try
             {
                 _connection = new HubConnectionBuilder()
-                    .WithUrl("https://daxbookserver.azurewebsites.net/bookshub")
-                    //.WithUrl("https://localhost:5001/bookshub")
+                    .WithUrl($"{AppSettingsManager.Settings["ApiBaseUrl"]}bookshub")
                     .Build();
 
                 _connection.On<string>("BookShared", OnBookShared);
