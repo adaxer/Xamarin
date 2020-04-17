@@ -1,4 +1,5 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
 using SmartLibrary.Core.Helpers;
@@ -13,7 +14,7 @@ namespace SmartLibrary.Core.ViewModels
     {
         private readonly IUserService _userService;
 
-        public WelcomeViewModel(INavigationService navigationService, IUserService userService) : base(navigationService)
+        public WelcomeViewModel(INavigationService navigationService, IUserService userService, IEventAggregator eventAggregator) : base(navigationService, eventAggregator)
         {
             Title = "SmartLibrary";
             this._userService = userService;

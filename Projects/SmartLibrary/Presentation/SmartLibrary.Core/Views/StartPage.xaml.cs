@@ -12,7 +12,6 @@ namespace SmartLibrary.Core.Views
             {
                 MasterBehavior = MasterBehavior.Popover;
             }
-
         }
     }
 }

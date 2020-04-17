@@ -20,7 +20,7 @@ namespace SmartLibrary.Core.ViewModels
 
         public IBookShareClient ShareClient { get; }
 
-        public SearchViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient, IEventAggregator eventAggregator) : base(navigationService)
+        public SearchViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient, IEventAggregator eventAggregator) : base(navigationService, eventAggregator)
         {
             Title = "Search";
             this._bookService = bookService;

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:DataType="vm:SettingsViewModel"
+             xmlns:vm="clr-namespace:SmartLibrary.Core.ViewModels" Style="{StaticResource ContentPageStyle}"
+             x:Class="SmartLibrary.Core.Views.SettingsPage">
+
+    <StackLayout>
+        <Picker x:Name="Picker" ItemsSource="{Binding Themes}" SelectedItem="{Binding CurrentTheme, Mode=TwoWay}" />
+
+    </StackLayout>
+    
+</ContentPage>

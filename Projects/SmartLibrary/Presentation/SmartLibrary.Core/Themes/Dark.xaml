@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SmartLibrary.Core.Themes.Light">
+             x:Class="SmartLibrary.Core.Themes.Dark">
 
-    <Color x:Key="StandardBackground" >#FFF8FFFF</Color>
-    <Color x:Key="ControlBackground" >#FEEE</Color>
-    <Color x:Key="StandardAccent" >#FF440000</Color>
-    <Color x:Key="StandardForeground" >#FF000022</Color>
-    <Color x:Key="ControlForeground" >#F222</Color>
+    <Color x:Key="StandardBackground" >#F444</Color>
+    <Color x:Key="ControlBackground" >#FF0044AA</Color>
+    <Color x:Key="StandardAccent" >#FFFFBBBB</Color>
+    <Color x:Key="StandardForeground" >#FFF8FFFF</Color>
+    <Color x:Key="ControlForeground" >#FFFF</Color>
 
     <Style TargetType="ContentPage" x:Key="ContentPageStyle">
         <Setter Property="BackgroundColor" Value="{DynamicResource StandardBackground}" />

@@ -21,7 +21,7 @@ namespace SmartLibrary.Core.ViewModels
         private readonly ILocationService _locationService;
         private readonly IUserService _userService;
 
-        public DetailsViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient, IEventAggregator eventAggregator, ILocationService locationService, IUserService userService) : base(navigationService)
+        public DetailsViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient, ILocationService locationService, IUserService userService, IEventAggregator eventAggregator) : base(navigationService, eventAggregator)
         {
             this._bookService = bookService;
             this._bookShareClient = bookShareClient;

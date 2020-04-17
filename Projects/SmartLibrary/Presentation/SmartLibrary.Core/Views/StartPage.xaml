@@ -1,15 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                  xmlns:prism="http://prismlibrary.com" 
-                  prism:ViewModelLocator.AutowireViewModel="True"
-                  x:Class="SmartLibrary.Core.Views.StartPage">
+                  xmlns:vm="clr-namespace:SmartLibrary.Core.ViewModels" IsPresented="{Binding IsPresented, Mode=TwoWay}"
+                  x:Class="SmartLibrary.Core.Views.StartPage" x:DataType="vm:StartViewModel"
+                  BackgroundColor="{StaticResource StandardBackground}">
+
+    <MasterDetailPage.Resources>
+
+        <Style TargetType="Button" x:Key="MenuButtonStyle">
+            <Setter Property="BackgroundColor" Value="Transparent"/>
+            <Setter Property="BorderColor" Value="Transparent"/>
+            <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+        </Style>
+
+    </MasterDetailPage.Resources>
 
     <MasterDetailPage.Master>
         <ContentPage Title="Menu">
-            <StackLayout Padding="20">
-                <!-- TODO: // Update the Layout and add some real menu items  -->
-                <Button Text="ViewA"  />
+            <ContentPage.Padding>
+                <OnPlatform x:TypeArguments="Thickness" iOS="0,30,0,0"/>
+            </ContentPage.Padding>
+            <StackLayout Padding="10">
+                <Button Text="Book Search" Style="{StaticResource MenuButtonStyle}" Command="{Binding ShowSearchCommand}"/>
+                <Button Text="Shared Elements" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Text="Settings" Style="{StaticResource MenuButtonStyle}" Command="{Binding ShowSettingsCommand}"/>
             </StackLayout>
         </ContentPage>
     </MasterDetailPage.Master>

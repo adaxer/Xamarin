@@ -4,6 +4,7 @@ using SmartLibrary.Core.Interfaces;
 using SmartLibrary.Core.Services;
 using SmartLibrary.Core.ViewModels;
 using SmartLibrary.Core.Views;
+using System;
 using System.Globalization;
 using System.Threading;
 using Xamarin.Forms;
@@ -28,8 +29,15 @@ namespace SmartLibrary.Core
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
+            SetLastTheme();
             await NavigationService.NavigateAsync("/StartPage/NavigationPage/WelcomePage");
+        }
+
+        private void SetLastTheme()
+        {
+            var settings = Container.Resolve<ISettingsService>();
+            var theme = (Theme) Enum.Parse(typeof(Theme), settings.Get("Theme", "Light"));
+            Container.Resolve<IThemeManager>().ChangeTheme(theme);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -38,12 +46,14 @@ namespace SmartLibrary.Core
             containerRegistry.Register<IBookService, BookService>();
             containerRegistry.Register<ISettingsService, XamarinPreferences>();
             containerRegistry.Register<ILocationService, LocationService>();
+            containerRegistry.Register<IThemeManager, ThemeManager>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<StartPage, StartViewModel>();
             containerRegistry.RegisterForNavigation<WelcomePage, WelcomeViewModel>();
             containerRegistry.RegisterForNavigation<SearchPage, SearchViewModel>();
             containerRegistry.RegisterForNavigation<DetailsPage, DetailsViewModel>();
+            containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
 
             containerRegistry.RegisterInstance<IUserService>(Container.Resolve<UserService>());
             InitializeShareClient(containerRegistry);

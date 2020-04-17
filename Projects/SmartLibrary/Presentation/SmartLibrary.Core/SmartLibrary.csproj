@@ -33,6 +33,9 @@
     <Compile Update="FormsApp.xaml.cs">
       <DependentUpon>FormsApp.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Themes\Dark.xaml.cs">
+      <DependentUpon>Dark.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Themes\Light.xaml.cs">
       <DependentUpon>Light.xaml</DependentUpon>
     </Compile>
@@ -46,6 +49,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\StartPage.xaml">
