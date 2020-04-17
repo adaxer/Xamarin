@@ -42,5 +42,8 @@
             </ListView>
         </StackLayout>
         <ctrl:Ticker Grid.Row="1" HorizontalOptions="Start" Content="{Binding ShareClient.LastBookInfo}" SecondsActive="30"/>
+        <Frame Grid.RowSpan="2" BackgroundColor="#22000000" IsVisible="{Binding IsBusy}">
+            <ActivityIndicator IsRunning="{Binding IsBusy}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Frame>
     </Grid>
 </ContentPage>

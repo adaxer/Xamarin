@@ -7,16 +7,32 @@ namespace SmartLibrary.Core.Controls
 {
     public class Ticker : Label
     {
+        public Ticker()
+        {
+            IsVisible = false;
+        }
+
         public static readonly BindableProperty ContentProperty = BindableProperty.Create(nameof(Content), typeof(string), typeof(Ticker), "-", propertyChanged: ContentChanged);
+
+        public static readonly BindableProperty SecondsActiveProperty = BindableProperty.Create(nameof(SecondsActive), typeof(int), typeof(Ticker), 1);
+        // ...
+
+        public string Content
+        {
+            get => (string)GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
+        }
+
+        public int SecondsActive
+        {
+            get => (int)GetValue(SecondsActiveProperty);
+            set => SetValue(SecondsActiveProperty, value);
+        }
+        // ...
 
         private static void ContentChanged(BindableObject bindable, object oldValue, object newValue)
         {
             (bindable as Ticker).Animate();
-        }
-
-        public Ticker()
-        {
-            IsVisible = false;
         }
 
         private async void Animate()
@@ -39,21 +55,5 @@ namespace SmartLibrary.Core.Controls
             }
             IsVisible = false;
         }
-
-        public static readonly BindableProperty SecondsActiveProperty = BindableProperty.Create(nameof(SecondsActive), typeof(int), typeof(Ticker), 1);
-        // ...
-
-        public string Content
-        {
-            get => (string)GetValue(ContentProperty);
-            set => SetValue(ContentProperty, value);
-        }
-
-        public int SecondsActive
-        {
-            get => (int)GetValue(SecondsActiveProperty);
-            set => SetValue(SecondsActiveProperty, value);
-        }
-        // ...
     }
 }

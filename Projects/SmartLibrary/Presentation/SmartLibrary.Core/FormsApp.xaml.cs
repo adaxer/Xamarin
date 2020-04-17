@@ -14,11 +14,13 @@ namespace SmartLibrary.Core
 {
     public partial class FormsApp
     {
+        private BookShareClient _shareClient;
+
         /* 
-         * The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
-         * This imposes a limitation in which the App class must have a default constructor. 
-         * App(IPlatformInitializer initializer = null) cannot be handled by the Activator.
-         */
+* The Xamarin Forms XAML Previewer in Visual Studio uses System.Activator.CreateInstance.
+* This imposes a limitation in which the App class must have a default constructor. 
+* App(IPlatformInitializer initializer = null) cannot be handled by the Activator.
+*/
         public FormsApp() : this(null) { }
 
         public FormsApp(IPlatformInitializer initializer) : base(initializer) { }
@@ -49,9 +51,9 @@ namespace SmartLibrary.Core
 
         private void InitializeShareClient(IContainerRegistry containerRegistry)
         {
-            var client = Container.Resolve<BookShareClient>();
-            containerRegistry.RegisterInstance<IBookShareClient>(client);
-            client.Initialize();
+            _shareClient = Container.Resolve<BookShareClient>();
+            containerRegistry.RegisterInstance<IBookShareClient>(_shareClient);
+            _shareClient.Initialize();
         }
     }
 }

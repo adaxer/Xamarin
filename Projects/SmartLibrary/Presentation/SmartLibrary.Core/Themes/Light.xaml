@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SmartLibrary.Core.Themes.Light">
+
+    <Color x:Key="StandardBackground" >#FFDDFFFF</Color>
+
+    <Style TargetType="ContentPage" x:Key="ContentPageStyle">
+        <Setter Property="Title" Value="{Binding Title}" />
+        <Setter Property="Padding" Value="4"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="TitleLabelStyle" >
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Label" x:Key="BodyLabelStyle" >
+        <Setter Property="FontSize">
+            <Setter.Value>
+                <OnPlatform x:TypeArguments="x:Double" Android="11" Default="14"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

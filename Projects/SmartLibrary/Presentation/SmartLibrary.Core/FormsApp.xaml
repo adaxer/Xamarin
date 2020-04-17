@@ -5,22 +5,9 @@
              x:Class="SmartLibrary.Core.FormsApp">
     <Application.Resources>
         <ResourceDictionary>
-            <!-- Application resource dictionary -->
-            <Style TargetType="ContentPage" x:Key="ContentPageStyle">
-                <Setter Property="Title" Value="{Binding Title}" />
-                <Setter Property="Padding" Value="4"/>
-            </Style>
-
-            <Style TargetType="Label" x:Key="TitleLabelStyle" >
-                <Setter Property="FontSize" Value="Title" />
-                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
-                <Setter Property="HorizontalTextAlignment" Value="Center"/>
-            </Style>
-
-            <Style TargetType="Label" x:Key="BodyLabelStyle" >
-                <Setter Property="FontSize" Value="14" />
-            </Style>
-
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/Light.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

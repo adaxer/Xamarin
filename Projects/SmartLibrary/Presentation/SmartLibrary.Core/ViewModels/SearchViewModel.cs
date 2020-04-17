@@ -1,6 +1,8 @@
 ﻿using Prism.Commands;
+using Prism.Events;
 using Prism.Mvvm;
 using Prism.Navigation;
+using SmartLibrary.Core.Events;
 using SmartLibrary.Core.Helpers;
 using SmartLibrary.Core.Interfaces;
 using SmartLibrary.Core.Models;
@@ -18,11 +20,12 @@ namespace SmartLibrary.Core.ViewModels
 
         public IBookShareClient ShareClient { get; }
 
-        public SearchViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient) : base(navigationService)
+        public SearchViewModel(INavigationService navigationService, IBookService bookService, IBookShareClient bookShareClient, IEventAggregator eventAggregator) : base(navigationService)
         {
             Title = "Search";
             this._bookService = bookService;
             ShareClient = bookShareClient;
+            eventAggregator.GetEvent<BookSharedEvent>().Subscribe(b => Title = b.Title); // Per Event
         }
 
         public ICommand SearchCommand => new DelegateCommand(DoSearch);
