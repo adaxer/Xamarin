@@ -22,7 +22,7 @@
             </ContentPage.Padding>
             <StackLayout Padding="10">
                 <Button Text="Book Search" Style="{StaticResource MenuButtonStyle}" Command="{Binding ShowSearchCommand}"/>
-                <Button Text="Shared Elements" Style="{StaticResource MenuButtonStyle}"/>
+                <Button Text="Shared Elements" Style="{StaticResource MenuButtonStyle}" Command="{Binding ShowNewsCommand}"/>
                 <Button Text="Settings" Style="{StaticResource MenuButtonStyle}" Command="{Binding ShowSettingsCommand}"/>
             </StackLayout>
         </ContentPage>

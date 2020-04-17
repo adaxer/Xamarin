@@ -14,6 +14,8 @@ namespace SmartLibrary.Core.Helpers
             public static string Details => nameof(DetailsPage);
 
             public static string Settings => nameof(SettingsPage);
+
+            public static string News => nameof(NewsPage);
         }
     }
 }

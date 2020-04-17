@@ -18,7 +18,8 @@ namespace SmartLibrary.Core.ViewModels
         }
 
         public ICommand ShowSettingsCommand => new DelegateCommand(()=>Show(Names.Navigation.Settings, true));
-        public ICommand ShowSearchCommand => new DelegateCommand(()=>Show(Names.Navigation.Search));
+        public ICommand ShowSearchCommand => new DelegateCommand(() => Show(Names.Navigation.Search));
+        public ICommand ShowNewsCommand => new DelegateCommand(() => Show(Names.Navigation.News));
 
         public bool IsPresented { get; set; }
 
